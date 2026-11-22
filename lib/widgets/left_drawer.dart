@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
+import 'package:myportofolio_mobile/screens/education_history_form.dart';
 
 class DrawerItem {
   final String title;
@@ -27,6 +28,11 @@ class LeftDrawer extends StatelessWidget {
       title: 'Add Project',
       icon: Icons.add_circle_outline,
       page: ProjectFormPage(),
+    ),
+    DrawerItem(
+      title: 'Add Education History',
+      icon: Icons.add_circle_outline,
+      page: EducationHistoryFormPage(),
     ),
   ];
 
