@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
+import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
 
 class EducationHistoryFormPage extends StatefulWidget {
   const EducationHistoryFormPage({super.key});
@@ -21,15 +22,7 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Add Education History',
-          ),
-        ),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
-      ),
+      appBar: MainAppBar(title: "Add Education History", centerTitle: true),
       drawer: LeftDrawer(),
       body: Form(
         key: _formKey,
