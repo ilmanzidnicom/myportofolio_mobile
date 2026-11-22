@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 import 'package:myportofolio_mobile/widgets/project_card.dart';
+import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -12,6 +13,7 @@ class MyHomePage extends StatelessWidget {
   final List<ItemHomepage> items = [
     ItemHomepage("Lihat Proyek", Icons.folder, Colors.indigoAccent),
     ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
+    ItemHomepage("Tambah Education History", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
     ItemHomepage("Logout", Icons.logout, Colors.red),
   ];
 
@@ -20,18 +22,8 @@ class MyHomePage extends StatelessWidget {
     // Scaffold menyediakan struktur visual dasar halaman (AppBar, Body, SnackBar).
     return Scaffold(
       // AppBar menampilkan bar bagian atas halaman aplikasi.
-      appBar: AppBar(
-        title: const Text(
-          'MyPortfolio',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        iconTheme: const IconThemeData(color: Colors.white)
-      ),
-      drawer: const LeftDrawer(),
+      appBar: MainAppBar(title: "MyPortfolio"),
+      drawer: LeftDrawer(),
       // Body halaman utama dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),

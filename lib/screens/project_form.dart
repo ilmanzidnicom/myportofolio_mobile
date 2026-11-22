@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
+import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
 
 class ProjectFormPage extends StatefulWidget {
   const ProjectFormPage({super.key});
@@ -28,16 +29,8 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Add Project Form',
-          ),
-        ),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
-      ),
-      drawer: const LeftDrawer(),
+      appBar: MainAppBar(title: "Add Project Form", centerTitle: true),
+      drawer: LeftDrawer(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
