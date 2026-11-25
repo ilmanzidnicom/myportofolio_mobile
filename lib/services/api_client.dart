@@ -102,7 +102,6 @@ class ApiClient {
     );
 
     _ensureSuccess(response);
-    throw UnimplementedError();
   }
 
   void _ensureSuccess(http.Response response) {
