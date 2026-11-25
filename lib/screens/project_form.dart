@@ -22,14 +22,6 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
   String _techStack = "";
   String _projectUrl = "";
   String _projectImageUrl = "";
-
-  final List<String> _categories = [
-    'Web Development',
-    'Mobile Development',
-    'Machine Learning',
-    'Data Science',
-    'Other',
-  ];
   
   bool _isSubmitting = false;
 

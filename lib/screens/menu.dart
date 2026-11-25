@@ -6,7 +6,7 @@ import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
 import 'package:myportofolio_mobile/services/auth_state.dart';
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  const MyHomePage({super.key});
 
   final String npm = "2506621951";
   final String nama = "Ilman Zidni";
