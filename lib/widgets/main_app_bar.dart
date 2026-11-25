@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MainAppBar({super.key, required this.title, this.centerTitle = false,});
+  const MainAppBar({super.key, required this.title, this.centerTitle = false});
 
   final String title;
   final bool centerTitle;
@@ -11,14 +11,11 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       centerTitle: centerTitle,
       backgroundColor: Theme.of(context).colorScheme.primary,
-      iconTheme: const IconThemeData(color: Colors.white)
+      iconTheme: const IconThemeData(color: Colors.white),
     );
   }
 

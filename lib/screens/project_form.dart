@@ -22,7 +22,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
   String _techStack = "";
   String _projectUrl = "";
   String _projectImageUrl = "";
-  
+
   bool _isSubmitting = false;
 
   bool _isValidUrl(String value) {
@@ -58,10 +58,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
     );
 
     try {
-      await context.read<ApiClient>().createProject(
-        newProject,
-        token: token,
-      );
+      await context.read<ApiClient>().createProject(newProject, token: token);
 
       if (!mounted) return;
 
@@ -116,9 +113,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
         await ensureLoggedIn(context);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Failed to create project: ${e.message}'),
-          ),
+          SnackBar(content: Text('Failed to create project: ${e.message}')),
         );
       }
     } finally {
@@ -280,14 +275,11 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all(Colors.indigo),
+                      backgroundColor: WidgetStateProperty.all(Colors.indigo),
                     ),
                     onPressed: _isSubmitting ? null : _submit,
                     child: _isSubmitting
-                        ? const CircularProgressIndicator(
-                            color: Colors.white,
-                          )
+                        ? const CircularProgressIndicator(color: Colors.white)
                         : const Text(
                             "Save",
                             style: TextStyle(color: Colors.white),
@@ -295,7 +287,6 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/models/project.dart';
 import 'package:myportofolio_mobile/screens/project_detail_screen.dart';
 import 'package:myportofolio_mobile/services/api_client.dart';
@@ -78,9 +78,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                 children: const [
                   SizedBox(
                     height: 300,
-                    child: Center(
-                      child: Text('No projects found.'),
-                    ),
+                    child: Center(child: Text('No projects found.')),
                   ),
                 ],
               ),
@@ -120,9 +118,8 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProjectDetailScreen(
-                            project: project,
-                          ),
+                          builder: (context) =>
+                              ProjectDetailScreen(project: project),
                         ),
                       );
                     },

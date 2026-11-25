@@ -69,17 +69,14 @@ class ApiClient {
     // Send HTTP POST to /api/v1/auth/token/ with JSON body
     // {'username': username, 'password': password}.
     // Call _ensureSuccess(response) and return decoded['token'] as String.
-  
+
     final response = await _client.post(
       _uri('/api/v1/auth/token/'),
       headers: const {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode({
-        'username': username,
-        'password': password,
-      }),
+      body: jsonEncode({'username': username, 'password': password}),
     );
 
     _ensureSuccess(response);
@@ -92,13 +89,10 @@ class ApiClient {
   Future<void> logout({required String token}) async {
     // Send HTTP POST to /api/v1/auth/logout/ with Authorization: 'Token $token'
     // and call _ensureSuccess(response).
-    
+
     final response = await _client.post(
       _uri('/api/v1/auth/logout/'),
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Token $token',
-      },
+      headers: {'Accept': 'application/json', 'Authorization': 'Token $token'},
     );
 
     _ensureSuccess(response);

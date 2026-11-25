@@ -7,7 +7,8 @@ class EducationHistoryFormPage extends StatefulWidget {
   const EducationHistoryFormPage({super.key});
 
   @override
-  State<EducationHistoryFormPage> createState() => _EducationHistoryFormPageState();
+  State<EducationHistoryFormPage> createState() =>
+      _EducationHistoryFormPageState();
 }
 
 class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
@@ -30,7 +31,6 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               // === Education Title ===
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -113,9 +113,7 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   // https://stackoverflow.com/questions/50123742/how-to-use-inputformatter-on-flutter-textfield
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
                     hintText: "2025",
                     labelText: "Started at Year",
@@ -145,9 +143,7 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
                     hintText: "2030",
                     labelText: "Ended at Year",
@@ -178,8 +174,6 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                 ),
               ),
 
-
-
               // === Tombol Simpan ===
               Align(
                 alignment: Alignment.bottomCenter,
@@ -187,8 +181,7 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor:
-                          WidgetStateProperty.all(Colors.indigo),
+                      backgroundColor: WidgetStateProperty.all(Colors.indigo),
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -196,7 +189,9 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Education History berhasil ditambahkan!'),
+                              title: const Text(
+                                'Education History berhasil ditambahkan!',
+                              ),
                               content: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,7 +200,9 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                                     Text('School: $_school'),
                                     Text('Deskripsi: $_description'),
                                     Text('Started at Year: $_startedAtYear'),
-                                    Text('Ended at Year: ${_endedAtYear ?? "Present"}'),
+                                    Text(
+                                      'Ended at Year: ${_endedAtYear ?? "Present"}',
+                                    ),
                                   ],
                                 ),
                               ),
@@ -230,7 +227,6 @@ class _EducationHistoryFormPageState extends State<EducationHistoryFormPage> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
