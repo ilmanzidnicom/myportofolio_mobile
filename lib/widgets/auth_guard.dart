@@ -7,16 +7,14 @@ import 'package:myportofolio_mobile/services/auth_state.dart';
 Future<bool> ensureLoggedIn(BuildContext context) async {
   // If context.read<AuthState>().isLoggedIn is true, return true immediately.
   // Otherwise push LoginScreen with Navigator.push<bool>(...) and return loggedIn ?? false.
-  
+
   if (context.read<AuthState>().isLoggedIn) {
     return true;
   }
 
   final loggedIn = await Navigator.push<bool>(
     context,
-    MaterialPageRoute(
-      builder: (context) => const LoginScreen(),
-    ),
+    MaterialPageRoute(builder: (context) => const LoginScreen()),
   );
 
   return loggedIn ?? false;

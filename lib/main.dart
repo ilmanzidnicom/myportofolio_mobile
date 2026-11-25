@@ -9,23 +9,20 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({required this.apiClient,super.key});
+  const MyApp({required this.apiClient, super.key});
 
   final ApiClient apiClient;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
         Provider.value(value: apiClient),
         // Register ChangeNotifierProvider creating AuthState(apiClient)
-        ChangeNotifierProvider(
-          create: (_) => AuthState(apiClient),
-        ),
+        ChangeNotifierProvider(create: (_) => AuthState(apiClient)),
       ],
-      
+
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -39,6 +36,5 @@ class MyApp extends StatelessWidget {
         home: MyHomePage(),
       ),
     );
-
   }
 }

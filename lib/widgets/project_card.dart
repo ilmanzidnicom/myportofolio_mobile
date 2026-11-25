@@ -25,16 +25,16 @@ class ItemCard extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
-              SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
+              SnackBar(
+                content: Text("Kamu telah menekan tombol ${item.name}!"),
+              ),
             );
 
           // Navigate ke halaman yang sesuai
           if (item.name == "Lihat Proyek") {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => ProjectListScreen(),
-              ),
+              MaterialPageRoute(builder: (context) => ProjectListScreen()),
             );
           }
           if (item.name == "Tambah Proyek") {
@@ -43,9 +43,7 @@ class ItemCard extends StatelessWidget {
 
             Navigator.push(
               context,
-              MaterialPageRoute(
-                builder: (context) => ProjectFormPage(),
-              ),
+              MaterialPageRoute(builder: (context) => ProjectFormPage()),
             );
           }
           if (item.name == "Tambah Education History") {
@@ -61,7 +59,6 @@ class ItemCard extends StatelessWidget {
             if (!context.mounted) return;
             Navigator.pop(context);
           }
-
         },
         child: Container(
           padding: const EdgeInsets.all(8),
@@ -69,11 +66,7 @@ class ItemCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
+                Icon(item.icon, color: Colors.white, size: 30.0),
                 const Padding(padding: EdgeInsets.all(3)),
                 Text(
                   item.name,

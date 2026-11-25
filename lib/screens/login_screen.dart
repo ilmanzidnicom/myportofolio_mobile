@@ -35,24 +35,19 @@ class _LoginScreenState extends State<LoginScreen> {
       if (!mounted) return;
 
       Navigator.pop(context, true);
-    }
-    on ApiException catch (e) {
+    } on ApiException catch (e) {
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Login failed. Status code: ${e.statusCode}'),
-        ),
+        SnackBar(content: Text('Login failed. Status code: ${e.statusCode}')),
       );
-    }
-    finally {
+    } finally {
       if (mounted) {
         setState(() {
           _isSubmitting = false;
         });
       }
     }
-    
   }
 
   @override

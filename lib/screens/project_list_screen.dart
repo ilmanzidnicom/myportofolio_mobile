@@ -78,9 +78,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                 children: const [
                   SizedBox(
                     height: 300,
-                    child: Center(
-                      child: Text('No projects found.'),
-                    ),
+                    child: Center(child: Text('No projects found.')),
                   ),
                 ],
               ),
@@ -120,9 +118,8 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProjectDetailScreen(
-                            project: project,
-                          ),
+                          builder: (context) =>
+                              ProjectDetailScreen(project: project),
                         ),
                       );
                     },

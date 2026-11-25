@@ -25,14 +25,11 @@ class AuthState extends ChangeNotifier {
     // even if the server request fails.
     try {
       await _apiClient.logout(token: current);
-    }
-    on ApiException {
+    } on ApiException {
       // Ignore the server error; the local session must still be cleared.
-    }
-    finally {
+    } finally {
       _token = null;
       notifyListeners();
     }
-
   }
 }
