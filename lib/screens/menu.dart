@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 import 'package:myportofolio_mobile/widgets/project_card.dart';
 import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
+import 'package:myportofolio_mobile/services/auth_state.dart';
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  const MyHomePage({super.key});
 
   final String npm = "2506621951";
   final String nama = "Ilman Zidni";
   final String kelas = "PBP B";
 
-  final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Proyek", Icons.folder, Colors.indigoAccent),
-    ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
-    ItemHomepage("Tambah Education History", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
-    ItemHomepage("Logout", Icons.logout, Colors.red),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = context.watch<AuthState>().isLoggedIn;
+
+    final List<ItemHomepage> items = [
+      ItemHomepage("Lihat Proyek", Icons.folder, Colors.indigoAccent),
+      ItemHomepage("Tambah Proyek", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
+      ItemHomepage("Tambah Education History", Icons.add_circle, Colors.lightGreen[800] ?? Colors.green),
+      if (isLoggedIn) ItemHomepage("Logout", Icons.logout, Colors.red),
+    ];
+
     // Scaffold menyediakan struktur visual dasar halaman (AppBar, Body, SnackBar).
     return Scaffold(
       // AppBar menampilkan bar bagian atas halaman aplikasi.
