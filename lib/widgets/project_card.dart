@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
 import 'package:myportofolio_mobile/screens/education_history_form.dart';
+import 'package:myportofolio_mobile/screens/project_list_screen.dart';
 import 'package:myportofolio_mobile/widgets/auth_guard.dart';
 
 class ItemCard extends StatelessWidget {
@@ -26,6 +27,14 @@ class ItemCard extends StatelessWidget {
             );
 
           // Navigate ke halaman yang sesuai
+          if (item.name == "Lihat Proyek") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProjectListScreen(),
+              ),
+            );
+          }
           if (item.name == "Tambah Proyek") {
             final loggedIn = await ensureLoggedIn(context);
             if (!loggedIn || !context.mounted) return;

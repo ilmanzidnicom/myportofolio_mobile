@@ -3,6 +3,7 @@ import 'package:myportofolio_mobile/models/project.dart';
 import 'package:myportofolio_mobile/screens/project_detail_screen.dart';
 import 'package:myportofolio_mobile/services/api_client.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
+import 'package:myportofolio_mobile/widgets/main_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class ProjectListScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Achievements: Projects')),
+      appBar: MainAppBar(title: "Achievements: Projects"),
       drawer: LeftDrawer(),
       body: FutureBuilder<List<Project>>(
         future: _projectsFuture,
